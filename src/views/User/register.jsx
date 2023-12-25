@@ -1,10 +1,13 @@
 import React from 'react';
+import RegisterForm from '../../components/registerForm';
+import Navbar from '../../components/navbar';
 
 const Register = () => {
     return (
-        <div>
-            <h1>Register</h1>
-        </div>
+        <>
+            <Navbar />
+            <RegisterForm />
+        </>
     );
 };
 
