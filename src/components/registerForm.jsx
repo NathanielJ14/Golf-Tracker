@@ -3,7 +3,7 @@ import '../../public/stylesheets/user.css';
 
 const RegisterForm = () => {
     return (
-        <div className='d-flex text-white bg-dark bgAuth'>
+        <div className='d-flex text-white bgAuth'>
             <div className='container d-flex w-50 h-100 mx-auto flex-column'>
                 <h1 className='text-center mt-4'>Create an account</h1>
                 <div className='container mt-3 formBg'>
