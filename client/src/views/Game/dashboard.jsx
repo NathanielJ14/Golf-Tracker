@@ -6,8 +6,8 @@ const Dashboard = () => {
     return (
         <div>
             <Navbar />
-            <div className='text-white container'>
-                <h1 className='mt-4'>Your Username</h1>
+            <div className='text-white mx-4'>
+                <h1 className='mt-2 mb-5'>Username's Dashboard</h1>
             </div>
             <DashboardGame />
         </div>
