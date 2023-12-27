@@ -26,6 +26,9 @@ const RegisterForm = () => {
             const response = await axios.post('http://localhost:5000/api/users', formData);
             console.log('Registration response:', response.data);
 
+            // Store the token in localStorage (or sessionStorage)
+            localStorage.setItem('token', response.data.token);
+
             // Redirect the user to the /dashboard page upon successful registration
             navigate('/dashboard');
         } catch (error) {

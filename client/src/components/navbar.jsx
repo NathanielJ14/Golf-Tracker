@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import LogoutButton from './logout';
 
 const Navbar = () => {
     return (
@@ -19,6 +19,7 @@ const Navbar = () => {
                     <div className="navbar-nav ms-auto">
                         <a className="nav-link" href="/register">Register</a>
                         <a className="nav-link" href="/login">Login</a>
+                        <LogoutButton />
                     </div>
                 </div>
             </div>
