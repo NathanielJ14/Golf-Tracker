@@ -7,7 +7,7 @@ exports.createUser = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
-        // Validate input (you may want to use a validation library)
+        // Validate input
         if (!username || !email || !password) {
             return res.status(400).json({ message: 'Please provide all required fields' });
         }
