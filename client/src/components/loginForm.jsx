@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../public/stylesheets/user.css';
 
 const LoginForm = () => {
     return (

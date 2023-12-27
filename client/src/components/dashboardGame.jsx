@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../public/stylesheets/dashboard.css';
 
 const DashboardGame = () => {
     return (
