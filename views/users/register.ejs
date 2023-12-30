@@ -1,24 +1,24 @@
 <% layout('layouts/boilerplate')%>
 
     <h2 class="text-center text-white fs-1 mt-4">Register</h2>
-    <div class="card w-50 m-auto mt-4 bg-dark text-white">
+    <div class="card w-50 m-auto mt-4 bg-dark text-white border-0">
         <div class="card-body">
             <form action="/register" method="POST" class="validated-form" novalidate>
-                <div class="mb-3">
+                <div class="mb-4">
                     <input placeholder="Username" class="form-control rounded-pill fs-5" type="text" id="username"
                         name="username" required autofocus>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <input placeholder="Email" class="form-control rounded-pill fs-5" type="email" id="email"
                         name="email" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <input placeholder="Password" class="form-control rounded-pill fs-5" type="password" id="password"
                         name="password" required>
                     <div class="valid-feedback">
