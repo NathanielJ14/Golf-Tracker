@@ -1,3 +1,67 @@
 <% layout('layouts/boilerplate') %>
 
-    <h1 class="text-white">New Game</h1>
+    <div class="row">
+        <h1 class="text-center">New Game</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/games" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <input class="form-control rounded-pill fs-5" type="text" id="course" name="game[course]" required
+                        placeholder="Course Name">
+                </div>
+
+                <div class="mb-4">
+                    <input class="form-control rounded-pill fs-5" type="date" id="date" name="game[date]" required
+                        placeholder="Date">
+                </div>
+
+                <div class="mb-4">
+                    <select id="holeCount" class="form-select rounded-pill fs-5" aria-label="holeCount"
+                        name="game[numberOfHoles]">
+                        <option value="9">9</option>
+                        <option value="18">18</option>
+                    </select>
+                </div>
+
+                <div id="holeInputsContainer" class="mb-4 row row-cols-3 g-3"></div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function generateInputFields() {
+            const holeCount = parseInt(document.getElementById('holeCount').value);
+            const container = document.getElementById('holeInputsContainer');
+
+            // Clear existing inputs
+            container.innerHTML = '';
+
+            // Generate new inputs based on the selected hole count
+            for (let i = 1; i <= holeCount; i++) {
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'form-control rounded-pill fs-5 mb-3';
+                input.placeholder = `Hole #${i}`;
+                input.name = `game[scores][${i - 1}][holeNumber]`;
+
+                // Create a new column every three inputs
+                const col = document.createElement('div');
+                col.className = 'col';
+                col.appendChild(input);
+
+                // Append the column to the container
+                container.appendChild(col);
+            }
+        }
+
+        // Initial generation based on the default value
+        document.addEventListener('DOMContentLoaded', function () {
+            generateInputFields();
+        });
+
+        // Update inputs when the dropdown value changes
+        document.getElementById('holeCount').addEventListener('change', generateInputFields);
+    </script>
