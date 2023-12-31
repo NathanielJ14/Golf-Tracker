@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Setting up game db
 const GameSchema = new Schema({
     course: String,
     date: Date,
@@ -11,25 +10,13 @@ const GameSchema = new Schema({
         required: true,
     },
     scores: {
-        type: [{
-            holeNumber: {
-                type: Number,
-                required: true,
-            },
-            score: {
-                type: Number,
-                required: true,
-            },
-        }],
+        type: [Number],
+        required: true,
     },
-});
-
-
-GameSchema.virtual('properties.popUpMarkup').get(function () {
-    return `
-        <strong><a href="/games/${this._id}">${this.course}</a></strong>
-        <p>${this.date}</p>
-    `;
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 });
 
 

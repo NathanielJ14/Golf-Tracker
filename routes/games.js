@@ -8,7 +8,12 @@ const { isLoggedIn, validateGame, isAuthor } = require('../middleware');
 //All campground routes
 router.route('/')
     .get(catchAsync(games.index))
-    .post(isLoggedIn, validateGame, catchAsync(games.createGame));
+    .post(isLoggedIn, catchAsync(async (req, res) => {
+        console.log('Submitted Form Data:', req.body);
+        validateGame(req, res, () => { });
+        await games.createGame(req, res);
+    }));
+
 
 router.get('/new', isLoggedIn, games.renderNewForm);
 

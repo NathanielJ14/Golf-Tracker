@@ -1,4 +1,6 @@
+const { gameSchema } = require('./schemas');
 const ExpressError = require('./utils/ExpressError');
+const Game = require('./models/game');
 
 //Authentication login setup
 module.exports.isLoggedIn = (req, res, next) => {

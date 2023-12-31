@@ -23,14 +23,23 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createGame = async (req, res, next) => {
-
-    const game = new Game(req.body.game);
-    await campground.save();
-    req.flash('success', 'Successfully made a new Game!');
-    res.redirect(`/games/${game._id}`)
-}
+    const game = new Game({
+        course: req.body.game.course,
+        date: req.body.game.date,
+        numberOfHoles: req.body.game.numberOfHoles,
+        scores: req.body.game.scores,
+        author: req.user._id,
+    });
+    await game.save();
+    req.flash('success', 'Successfully made a new game!');
+    res.redirect('/games')
+};
 
 module.exports.showGame = async (req, res) => {
+    const game = await Game.findById(req.params.id).populate({
+        path: 'author'
+    }).populate('author');
+
     if (!game) {
         req.flash('error', 'Cannot find that Game!');
         return res.redirect('/games');
@@ -45,13 +54,13 @@ module.exports.renderEditForm = async (req, res) => {
         req.flash('error', 'Cannot find that game!');
         return res.redirect('/games');
     }
-    res.render('games/edit', { games });
+    res.render('games/edit', { game });
 }
 
 module.exports.updateGame = async (req, res) => {
     const { id } = req.params;
     const game = await Game.findByIdAndUpdate(id, { ...req.body.game });
-    await campground.save();
+    await game.save();
     req.flash('success', 'Successfully updated your game!');
     res.redirect(`/games/${game._id}`);
 }
