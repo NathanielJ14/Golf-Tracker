@@ -135,7 +135,6 @@ app.use((req, res, next) => {
 app.use('/games', gameRoutes);
 app.use('/', userRoutes);
 
-
 // Setting up routes
 app.get('/', (req, res) => {
     res.render('home');
