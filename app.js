@@ -17,6 +17,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 
 const userRoutes = require('./routes/users');
+const gameRoutes = require('./routes/games');
 const MongoStore = require('connect-mongo');
 
 const dbUrl = process.env.DB_URL;
@@ -131,6 +132,7 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use('/games', gameRoutes);
 app.use('/', userRoutes);
 
 
