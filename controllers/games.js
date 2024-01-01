@@ -1,8 +1,21 @@
 const Game = require('../models/game');
 
 module.exports.index = async (req, res) => {
-    const games = await Game.find({});
-    res.render('games/index', { games });
+    try {
+        // Check if the user is authenticated
+        if (!req.isAuthenticated()) {
+            req.flash('error', 'You need to be logged in to view your games.');
+            return res.redirect('/login');
+        }
+
+        const user = req.user;
+        const games = await Game.find({ user_id: user._id });
+        res.render('games/index', { games, user });
+    } catch (err) {
+        console.error(err);
+        req.flash('error', 'An error occurred while fetching games');
+        res.redirect('/games');
+    }
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -10,7 +23,6 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createGame = async (req, res, next) => {
-    console.log(req.body.game)
     const game = new Game(req.body.game);
     game.author = req.user._id;
     await game.save();

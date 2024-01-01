@@ -21,7 +21,6 @@ module.exports.storeReturnTo = (req, res, next) => {
 
 // Game validation
 module.exports.validateGame = (req, res, next) => {
-    console.log(req.body); // Log the request body
     const { error } = gameSchema.validate(req.body);
 
     if (error) {

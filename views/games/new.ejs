@@ -7,17 +7,152 @@
                                 enctype="application/x-www-form-urlencoded">
                                 <div class="mb-4">
                                         <input class="form-control rounded-pill fs-5" type="text" id="course"
-                                                name="game[course]" placeholder="Course Name" required>
+                                                name="game[course]" required placeholder="Course Name">
+                                </div>
+
+                                <div class="mb-4">
+                                        <input class="form-control rounded-pill fs-5" type="date" id="date"
+                                                name="game[date]" required placeholder="Date">
+                                </div>
+
+                                <div class="mb-3">
+                                        <select id="holeCount" class="form-select rounded-pill fs-5"
+                                                aria-label="holeCount" name="game[numberOfHoles]">
+                                                <option value="9">9</option>
+                                                <option value="18">18</option>
+                                        </select>
                                 </div>
 
                                 <h3 class="text-white text-center mb-3">Scores</h3>
+                                <div id="holeInputsContainer" class="mb-4 row row-cols-3 g-3">
 
+                                        <div class="col hole-input text-center" data-hole="1">
+                                                <label for="hole1" class="label text-white">Hole #1</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole1]" required value="0" />
+                                        </div>
+
+                                        <div class="col hole-input text-center" data-hole="2">
+                                                <label for="hole2" class="label text-white">Hole #2</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole2]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="3">
+                                                <label for="hole3" class="label text-white">Hole #3</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole3]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="4">
+                                                <label for="hole4" class="label text-white">Hole #4</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole4]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="5">
+                                                <label for="hole5" class="label text-white">Hole #5</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole5]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="6">
+                                                <label for="hole6" class="label text-white">Hole #6</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole6]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="7">
+                                                <label for="hole7" class="label text-white">Hole #7</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole7]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="8">
+                                                <label for="hole8" class="label text-white">Hole #8</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole8]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="9">
+                                                <label for="hole9" class="label text-white">Hole #9</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole9]" required value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="10">
+                                                <label for="hole10" class="label text-white">Hole #10</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole10]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="11">
+                                                <label for="hole11" class="label text-white">Hole #11</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole11]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="12">
+                                                <label for="hole12" class="label text-white">Hole #12</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole12]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="13">
+                                                <label for="hole13" class="label text-white">Hole #13</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole13]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="14">
+                                                <label for="hole14" class="label text-white">Hole #14</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole14]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="15">
+                                                <label for="hole15" class="label text-white">Hole #15</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole15]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="16">
+                                                <label for="hole16" class="label text-white">Hole #16</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole16]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="17">
+                                                <label for="hole17" class="label text-white">Hole #17</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole17]" value="0" />
+                                        </div>
+                                        <div class="col hole-input text-center" data-hole="18">
+                                                <label for="hole18" class="label text-white">Hole #18</label>
+                                                <input type="number" class="form-control rounded-pill fs-5 mb-3"
+                                                        name="game[hole18]" value="0" />
+                                        </div>
+                                </div>
 
                                 <div class="d-flex w-100 justify-content-center">
-                                        <button class="btn btn-lg btn-success rounded-pill w-50">Create
-                                                New
+                                        <button class="btn btn-lg btn-success rounded-pill w-50">Create New
                                                 Game</button>
                                 </div>
                         </form>
                 </div>
         </div>
+
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                        const holeCountInput = document.getElementById('holeCount');
+                        const holeInputs = document.querySelectorAll('.hole-input');
+
+                        function updateVisibleHoles() {
+                                const holeCount = parseInt(holeCountInput.value);
+
+                                // Hide all holes
+                                holeInputs.forEach(input => {
+                                        input.style.display = 'none';
+                                });
+
+                                // Show holes up to the selected hole count
+                                for (let i = 1; i <= holeCount; i++) {
+                                        const holeInput = document.querySelector(`.hole-input[data-hole="${i}"]`);
+                                        if (holeInput) {
+                                                holeInput.style.display = 'block';
+                                        }
+                                }
+                        }
+
+                        // Initial setup
+                        updateVisibleHoles();
+
+                        // Update visible holes when the dropdown value changes
+                        holeCountInput.addEventListener('change', updateVisibleHoles);
+                });
+        </script>
