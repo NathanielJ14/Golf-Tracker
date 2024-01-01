@@ -19,13 +19,14 @@ module.exports.storeReturnTo = (req, res, next) => {
     next();
 }
 
-//Game validation
+// Game validation
 module.exports.validateGame = (req, res, next) => {
+    console.log(req.body); // Log the request body
     const { error } = gameSchema.validate(req.body);
 
     if (error) {
         const msg = error.details.map(el => el.message).join(',');
-        throw new ExpressError(msg, 400);
+        return next(new ExpressError(msg, 400));
     } else {
         next();
     }

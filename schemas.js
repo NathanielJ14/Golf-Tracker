@@ -21,14 +21,11 @@ const extension = (joi) => ({
     }
 });
 
-const Joi = BaseJoi.extend(extension);
+const Joi = BaseJoi.extend(extension)
 
 module.exports.gameSchema = Joi.object({
     game: Joi.object({
         course: Joi.string().required().escapeHTML(),
-        date: Joi.date().required(),
-        numberOfHoles: Joi.number().valid(9, 18).required(),
-        scores: Joi.array().items(Joi.number().required()).required()
-    }).required()
+    }).required(),
 });
 

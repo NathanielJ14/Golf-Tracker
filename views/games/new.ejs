@@ -1,68 +1,23 @@
 <% layout('layouts/boilerplate') %>
 
-    <div class="row">
-        <h1 class="text-center text-white fs-1 mb-3">New Game</h1>
-        <div class="col-md-6 offset-md-3">
-            <form action="/games" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
-                <div class="mb-4">
-                    <input class="form-control rounded-pill fs-5" type="text" id="course" name="game[course]" required
-                        placeholder="Course Name">
-                </div>
+        <div class="row">
+                <h1 class="text-center text-white fs-1 mb-3">New Game</h1>
+                <div class="col-md-6 offset-md-3">
+                        <form action="/games" method="POST" novalidate class="validated-form"
+                                enctype="application/x-www-form-urlencoded">
+                                <div class="mb-4">
+                                        <input class="form-control rounded-pill fs-5" type="text" id="course"
+                                                name="game[course]" placeholder="Course Name" required>
+                                </div>
 
-                <div class="mb-4">
-                    <input class="form-control rounded-pill fs-5" type="date" id="date" name="game[date]" required
-                        placeholder="Date">
-                </div>
+                                <h3 class="text-white text-center mb-3">Scores</h3>
 
-                <div class="mb-3">
-                    <select id="holeCount" class="form-select rounded-pill fs-5" aria-label="holeCount"
-                        name="game[numberOfHoles]">
-                        <option value="9">9</option>
-                        <option value="18">18</option>
-                    </select>
-                </div>
 
-                <h3 class="text-white text-center mb-3">Scores</h3>
-                <div id="holeInputsContainer" class="mb-4 row row-cols-3 g-3"></div>
-
-                <div class="d-flex w-100 justify-content-center">
-                    <button class="btn btn-lg btn-success rounded-pill w-50">Create New Game</button>
+                                <div class="d-flex w-100 justify-content-center">
+                                        <button class="btn btn-lg btn-success rounded-pill w-50">Create
+                                                New
+                                                Game</button>
+                                </div>
+                        </form>
                 </div>
-            </form>
         </div>
-    </div>
-
-    <script>
-        function generateInputFields() {
-            const holeCount = parseInt(document.getElementById('holeCount').value);
-            const container = document.getElementById('holeInputsContainer');
-
-            // Clear existing inputs
-            container.innerHTML = '';
-
-            // Generate new inputs based on the selected hole count
-            for (let i = 1; i <= holeCount; i++) {
-                const inputScore = document.createElement('input');
-                inputScore.type = 'number';
-                inputScore.className = 'form-control rounded-pill fs-5 mb-3';
-                inputScore.placeholder = `Hole #${i}`;
-                inputScore.name = `game[scores][${i - 1}]`;
-
-                // Create a new column every three inputs
-                const col = document.createElement('div');
-                col.className = 'col';
-                col.appendChild(inputScore);
-
-                // Append the column to the container
-                container.appendChild(col);
-            }
-        }
-
-        // Initial generation based on the default value
-        document.addEventListener('DOMContentLoaded', function () {
-            generateInputFields();
-        });
-
-        // Update inputs when the dropdown value changes
-        document.getElementById('holeCount').addEventListener('change', generateInputFields);
-    </script>
