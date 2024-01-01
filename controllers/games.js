@@ -9,7 +9,7 @@ module.exports.index = async (req, res) => {
         }
 
         const user = req.user;
-        const games = await Game.find({ user_id: user._id });
+        const games = await Game.find({ author: user._id });
         res.render('games/index', { games, user });
     } catch (err) {
         console.error(err);
