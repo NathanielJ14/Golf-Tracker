@@ -33,6 +33,12 @@
             </tbody>
         </table>
     </div>
+    <div class="d-flex justify-content-center mt-4 gap-5">
+        <a class="card-link btn btn-primary fs-4" href="/games/<%= game._id %>/edit">Edit</a>
+        <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger fs-4">Delete</button>
+        </form>
+    </div>
 
     <!-- Function to get total score -->
     <% function calculateTotalScore(game) { let totalScore=0; for (let i=1; i <=18; i++) { totalScore +=game['hole' +
