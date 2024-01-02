@@ -1,22 +1,31 @@
 <% layout('layouts/boilerplate') %>
 
     <div>
-        <h1 class="text-white">
+        <h1 class="text-white mb-5">
             <%= user.username %>'s Dashboard
         </h1>
     </div>
 
     <div>
         <% for (let game of games) { %>
-            <div class="card" style="width: 18rem;">
+            <div class="card mb-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">
                         <%= game.course %>
                     </h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        <%= new Date(game.date).toLocaleDateString() %>
+                        <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' };
+                            const formattedDate=new Date(game.date).toLocaleDateString(undefined, options); %>
+                            <%= formattedDate %>
                     </h6>
+                    <p>Score: <%= calculateTotalScore(game) %>
+                    </p>
                 </div>
             </div>
             <% } %>
     </div>
+
+
+    <!-- Function to get total score -->
+    <% function calculateTotalScore(game) { let totalScore=0; for (let i=1; i <=18; i++) { totalScore +=game['hole' +
+        i]; } return totalScore; } %>
