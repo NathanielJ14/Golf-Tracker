@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row text-white text-center">
+        <h1 class="fs-1 mb-4">
+            <%= game.course %>
+        </h1>
+        <div class="d-flex justify-content-evenly w-75 m-auto align-items-center">
+            <h3>Date: <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' }; const
+                    formattedDate=new Date(game.date).toLocaleDateString(undefined, options); %>
+                    <%= formattedDate %>
+            </h3>
+            <h3>Final Score: <%= calculateTotalScore(game) %>
+            </h3>
+        </div>
+
+        <table class="table table-bordered table-striped table-dark fs-4 w-50 m-auto">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Hole #</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i=1; i <=18; i++) { %>
+                    <tr>
+                        <td scope="row">Hole <%= i %>
+                        </td>
+                        <td>
+                            <%= game['hole' + i] %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Function to get total score -->
+    <% function calculateTotalScore(game) { let totalScore=0; for (let i=1; i <=18; i++) { totalScore +=game['hole' +
+        i]; } return totalScore; } %>

@@ -31,9 +31,7 @@ module.exports.createGame = async (req, res, next) => {
 }
 
 module.exports.showGame = async (req, res) => {
-    const game = await Game.findById(req.params.id).populate({
-        path: 'author'
-    }).populate('author');
+    const game = await Game.findById(req.params.id);
 
     if (!game) {
         req.flash('error', 'Cannot find that Game!');
