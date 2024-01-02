@@ -6,25 +6,35 @@
         </h1>
     </div>
 
-    <div>
+    <div class="row">
         <% for (let game of games) { %>
-            <div class="card mb-3" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%= game.course %>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                        <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' };
-                            const formattedDate=new Date(game.date).toLocaleDateString(undefined, options); %>
-                            <%= formattedDate %>
-                    </h6>
-                    <p>Score: <%= calculateTotalScore(game) %>
-                    </p>
+            <div class="col-md-3 col-12 mb-4">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">
+                            <a href="">
+                                <%= game.course %>
+                            </a>
+                        </h5>
+                        <h6 class="card-subtitle my-2 text-body-secondary">
+                            <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' };
+                                const formattedDate=new Date(game.date).toLocaleDateString(undefined, options); %>
+                                <%= formattedDate %>
+                        </h6>
+                        <p>Score: <%= calculateTotalScore(game) %>
+                        </p>
+
+                        <div class="d-flex justify-content-evenly">
+                            <a class="card-link btn btn-primary" href="/games/<%= game._id %>/edit">Edit</a>
+                            <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <% } %>
     </div>
-
 
     <!-- Function to get total score -->
     <% function calculateTotalScore(game) { let totalScore=0; for (let i=1; i <=18; i++) { totalScore +=game['hole' +

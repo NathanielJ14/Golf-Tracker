@@ -57,7 +57,7 @@ module.exports.updateGame = async (req, res) => {
     const game = await Game.findByIdAndUpdate(id, { ...req.body.game });
     await game.save();
     req.flash('success', 'Successfully updated your game!');
-    res.redirect(`/games/${game._id}`);
+    res.redirect(`/games`);
 }
 
 module.exports.deleteGame = async (req, res) => {
