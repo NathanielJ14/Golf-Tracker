@@ -23,6 +23,7 @@ const extension = (joi) => ({
 
 const Joi = BaseJoi.extend(extension);
 
+// Scheama validations for game using JOI
 module.exports.gameSchema = Joi.object({
     game: Joi.object({
         course: Joi.string().required().escapeHTML(),
