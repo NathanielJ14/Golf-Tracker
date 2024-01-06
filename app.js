@@ -20,8 +20,9 @@ const userRoutes = require('./routes/users');
 const gameRoutes = require('./routes/games');
 const MongoStore = require('connect-mongo');
 
-const dbUrl = process.env.DB_URL;
-// 'mongodb://localhost:27017/golf-tracker'
+// const dbUrl = process.env.DB_URL;
+const dbUrl = 'mongodb://localhost:27017/golf-tracker';
+
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
