@@ -5,7 +5,8 @@
             <%= game.course %>
         </h1>
         <div class="d-flex justify-content-evenly w-75 m-auto align-items-center">
-            <h3>Date: <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' }; const
+            <h3>Date:
+                <% const options={ year: 'numeric' , month: 'numeric' , day: 'numeric' , timeZone: 'UTC' }; const
                     formattedDate=new Date(game.date).toLocaleDateString(undefined, options); %>
                     <%= formattedDate %>
             </h3>
@@ -13,7 +14,7 @@
             </h3>
         </div>
 
-        <table class="table table-bordered table-striped table-dark fs-4 w-50 m-auto">
+        <table class="table table-bordered table-striped table-dark fs-4 m-auto col-12 col-md-6">
             <thead class="table-light">
                 <tr>
                     <th scope="col">Hole #</th>
@@ -33,6 +34,7 @@
             </tbody>
         </table>
     </div>
+
     <div class="d-flex justify-content-center mt-4 gap-5">
         <a class="card-link btn btn-primary fs-4" href="/games/<%= game._id %>/edit">Edit</a>
         <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
