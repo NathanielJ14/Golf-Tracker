@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% for (let i=1; i <=9; i++) { %>
+                <% for (let i=1; i <=Math.min(9, game['numberOfHoles']); i++) { %>
                     <tr>
                         <td scope="row">
                             Hole <%= i %>
@@ -32,25 +32,20 @@
                         </td>
                     </tr>
                     <% } %>
-                        <% let allZeros=true; %>
-                            <% for (let i=10; i <=18; i++) { %>
-                                <% if (game['hole' + i] !==0) { %>
-                                    <% allZeros=false; %>
-                                        <% } %>
-                                            <% } %>
-                                                <% if (!allZeros) { %>
-                                                    <% for (let i=10; i <=18; i++) { %>
-                                                        <tr>
-                                                            <td scope="row">
-                                                                Hole <%= i %>
-                                                            </td>
-                                                            <td>
-                                                                <%= game['hole' + i] %>
-                                                            </td>
-                                                        </tr>
-                                                        <% } %>
-                                                            <% } %>
+                        <% if (game['numberOfHoles']> 9) { %>
+                            <% for (let i=10; i <=game['numberOfHoles']; i++) { %>
+                                <tr>
+                                    <td scope="row">
+                                        Hole <%= i %>
+                                    </td>
+                                    <td>
+                                        <%= game['hole' + i] %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <% } %>
             </tbody>
+
         </table>
     </div>
 
