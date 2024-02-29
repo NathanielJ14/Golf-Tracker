@@ -12,6 +12,7 @@ module.exports.isLoggedIn = (req, res, next) => {
     next();
 }
 
+//Returns user back to url user was trying to access before redirecting
 module.exports.storeReturnTo = (req, res, next) => {
     if (req.session.returnTo) {
         res.locals.returnTo = req.session.returnTo;

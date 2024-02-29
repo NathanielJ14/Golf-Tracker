@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//Uses passport to simplify user sign up
 const passportLocalMongoose = require('passport-local-mongoose');
 
 //DB schema for user

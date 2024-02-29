@@ -1,3 +1,4 @@
+//If not set to production uses .env
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
@@ -20,11 +21,13 @@ const userRoutes = require('./routes/users');
 const gameRoutes = require('./routes/games');
 const MongoStore = require('connect-mongo');
 
+//Connection to db
 const dbUrl = process.env.DB_URL;
 // const dbUrl = 'mongodb://localhost:27017/golf-tracker';
 
 mongoose.connect(dbUrl);
 
+//Logs message when connection is open
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -33,6 +36,7 @@ db.once("open", () => {
 
 module.exports = db;
 
+//Setting up express
 const app = express();
 
 app.engine('ejs', ejsMate);
@@ -45,10 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 app.use(helmet());
 
+//Trusting content from urls
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
-    "https://api.tiles.mapbox.com/",
-    "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
@@ -56,17 +59,9 @@ const scriptSrcUrls = [
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
     "https://stackpath.bootstrapcdn.com/",
-    "https://api.mapbox.com/",
-    "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net/",
-];
-const connectSrcUrls = [
-    "https://api.mapbox.com/",
-    "https://a.tiles.mapbox.com/",
-    "https://b.tiles.mapbox.com/",
-    "https://events.mapbox.com/",
 ];
 const fontSrcUrls = [];
 app.use(
@@ -81,15 +76,14 @@ app.use(
             imgSrc: [
                 "'self'",
                 "blob:",
-                "data:",
-                "https://res.cloudinary.com/dbwuxkfwc/",
-                "https://images.unsplash.com/",
+                "data:"
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
     })
 );
 
+//Set up session store using mongo
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
@@ -102,6 +96,7 @@ store.on('error', function (e) {
     console.log('SESSION STORE ERROR', e);
 });
 
+//Set up session
 const sessionConfig = {
     store,
     name: 'session',
