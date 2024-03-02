@@ -32,7 +32,7 @@ module.exports.validateGame = (req, res, next) => {
     }
 }
 
-//Authorization author middleware
+//Authorize author middleware
 module.exports.isAuthor = async (req, res, next) => {
     const { id } = req.params;
     const game = await Game.findById(id);
