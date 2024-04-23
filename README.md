@@ -1,8 +1,11 @@
 # Golf Tracker
 Golf Tracker is an app that I designed, managed, and developed. Using tools like Javascript, Express, Node.JS, Bootstrap and MongoDB to create a full CRUD, user friendly application where a registered user can track their golf games and scores per game. 
 
-Link to project: https://golf-tracker.onrender.com/
-Video demo: https://github.com/NathanielJ14/Golf-Tracker/assets/117672031/8ab213ba-f3b7-45c7-b7c6-f502f0385dea
+<p>Link to project: <a href="https://golf-tracker.onrender.com/">Golf Tracker</a> </p>
+Video demo: 
+<video width="320" height="240" controls>
+  <source src="https://github.com/NathanielJ14/Golf-Tracker/assets/117672031/8ab213ba-f3b7-45c7-b7c6-f502f0385dea" type="video/mp4">
+</video>
 
 ## How It's Made
 <p>On the back end, I used tools like Node, Express, and Mongoose to set up all the routes as well as create validations and handle API calls. 
