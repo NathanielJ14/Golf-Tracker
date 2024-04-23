@@ -1,11 +1,9 @@
 # Golf Tracker
 Golf Tracker is an app that I designed, managed, and developed. Using tools like Javascript, Express, Node.JS, Bootstrap and MongoDB to create a full CRUD, user friendly application where a registered user can track their golf games and scores per game. 
 
-<p>Link to project: <a href="https://golf-tracker.onrender.com/">Golf Tracker</a> </p>
-Video demo: 
-<video width="320" height="240" controls>
-  <source src="https://github.com/NathanielJ14/Golf-Tracker/assets/117672031/8ab213ba-f3b7-45c7-b7c6-f502f0385dea" type="video/mp4">
-</video>
+<p>Link to Project: <a href="https://golf-tracker.onrender.com/">Golf Tracker</a> </p>
+<p>Video Demo: https://github.com/NathanielJ14/Golf-Tracker/assets/117672031/8ab213ba-f3b7-45c7-b7c6-f502f0385dea</p>
+
 
 ## How It's Made
 <p>On the back end, I used tools like Node, Express, and Mongoose to set up all the routes as well as create validations and handle API calls. 
@@ -23,6 +21,8 @@ On the front, I used EJS to add JavaScript into HTML markup and Bootstrap with s
 <img align="left" style="padding-right:10px" width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 <img align="left" style="padding-right:10px" width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
 <img align="left" style="padding-right:10px" width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+
+<br> 
 
 ## Known Issues
 <p>Both this app and the Yelp Camp project run off the same Mongo Atlas DB so when you make an account on one it also makes it for the other.</p>
